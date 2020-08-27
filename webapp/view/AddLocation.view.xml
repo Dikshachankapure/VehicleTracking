@@ -1,0 +1,75 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:tnt="sap.tnt"
+	controllerName="product.ZVehicleTracking.controller.AddLocation" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+			<Page title="{i18n>titleAddLocation}" navButtonPress="_onNavBack" showNavButton="true" floatingFooter="true">
+				<content>
+					<tnt:ToolHeader>
+						<Button text="Dashboard" icon="sap-icon://bbyd-dashboard" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Location Manager" icon="sap-icon://map" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Vehicle Manager" icon="sap-icon://inventory" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Driver Manager" icon="sap-icon://employee" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Trip Manager" icon="sap-icon://task" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Track Vehicle" icon="sap-icon://shipping-status" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+					</tnt:ToolHeader>
+					<VBox class="sapUiSmallMargin">
+						<f:SimpleForm id="SimpleFormChange354" editable="true" layout="ResponsiveGridLayout" title="Add Location" labelSpanXL="3" labelSpanL="3"
+							labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+							columnsL="1" columnsM="1" singleContainerFullSize="false">
+							<f:content>
+								<Input id="txtLocationId" visible="false" value="0" type="Text"/>
+								<Label text="Location Name" required="true"/>
+								<Input id="txtLocationName" type="Text" />
+								<!--<Input id="txtLocationName" type="Text" showSuggestion="true" suggest="onLocationSearch" suggestionItems="{/results}">
+									<suggestionItems>
+										<core:Item text="{formatted_address}"/>
+									</suggestionItems>
+								</Input>-->
+								
+								<Button id="btnSearch" text="Search" icon="sap-icon://search" press="_onSeachRoute" type="Emphasized" tooltip="Search Location"/>
+								<Label text="Latitude" required="true"/>
+								<Input id="txtLatitude" type="Text" enabled="false"/>
+								<Label text="Longitude" required="true"/>
+								<Input id="txtLongitude" type="Text" enabled="false"/>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+				</content>
+				<footer>
+					<OverflowToolbar>
+						<content>
+							<ToolbarSpacer/>
+							<Button id="btnSave" text="Save" visible="true" icon="sap-icon://save" press="_onSaveUpdate" type="Emphasized" tooltip="Save"/>
+							<Button id="bnClear" text="Clear" icon="sap-icon://decline" press="_clearData" type="Reject" tooltip="Clear"/>
+						</content>
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

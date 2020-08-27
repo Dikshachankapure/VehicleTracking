@@ -1,0 +1,20 @@
+{
+	"Drivers": [{
+		"DriverId": "1",
+        "FirstName": "Patel",
+        "LastName": "Vijay",
+        "MobileNo": "9045678745",
+        "LicenseNo": "GJ2AH1234",
+        "AadharNo": "180090459056",
+        "Address": "test address"
+    },{
+    	"DriverId": "2",
+        "FirstName": "Rabari",
+        "LastName": "Sanjay",
+        "MobileNo": "9212345687",
+        "LicenseNo": "GJ2MH1234",
+        "AadharNo": "180090459056",
+        "Address": "test1 address"
+    }]
+    
+ }

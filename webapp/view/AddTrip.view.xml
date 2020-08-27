@@ -1,0 +1,101 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="product.ZVehicleTracking.controller.AddTrip"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:tnt="sap.tnt" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+			<Page title="{i18n>titleAddTrip}" navButtonPress="_onNavBack" showNavButton="true" floatingFooter="true">
+				<content>
+					<tnt:ToolHeader>
+						<Button text="Dashboard" icon="sap-icon://bbyd-dashboard" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Location Manager" icon="sap-icon://map" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Vehicle Manager" icon="sap-icon://inventory" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Driver Manager" icon="sap-icon://employee" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Trip Manager" icon="sap-icon://task" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Track Vehicle" icon="sap-icon://shipping-status" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+					</tnt:ToolHeader>
+					<VBox class="sapUiSmallMargin">
+						<f:SimpleForm id="formTrip" editable="true" layout="ResponsiveGridLayout" title="Add Trip / Route" labelSpanXL="2" labelSpanL="2"
+							labelSpanM="2" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="2" emptySpanL="2" emptySpanM="2" emptySpanS="0" columnsXL="1"
+							columnsL="1" columnsM="1" singleContainerFullSize="false">
+							<f:content>
+								<Input id="txtTripId" value="0" visible="false" type="Text"/>
+								<Label text="Vehicle Reg. No."/>
+								<Input id="txtVechileRegNo" type="Text" textFormatMode="Key" showSuggestion="true" showValueHelp="true"
+									valueHelpRequest="_handleValueHelpVehicle" suggestionItems="{/Vehicles}">
+									<suggestionItems>
+										<core:Item text="{OwnerName}" key="{RegistrationNo}"/>
+									</suggestionItems>
+								</Input>
+								<Label text="Driver Name"/>
+								<Input id="txtDriverName" type="Text" textFormatMode="Key" showSuggestion="true" showValueHelp="true"
+									valueHelpRequest="_handleValueHelpDriver" suggestionItems="{/Drivers}">
+									<suggestionItems>
+										<core:Item text="{FirstName} {LastName}" key="{DriverId}"/>
+									</suggestionItems>
+								</Input>
+								<Label text="Route From"/>
+								<ComboBox id="drpRouteFrom" items="{ path: '/Locations', sorter: { path: 'Name' } }">
+									<core:Item key="{LocationId}" text="{Name}"/>
+								</ComboBox>
+								<!--<Input id="txtRouteFrom" type="Text"/>
+								<Button id="btnSearchFrom" icon="sap-icon://search" text="Find" press="onSeachRouteFrom" type="Emphasized" tooltip="Search"/>
+								
+								<Input id="txtLatFrom" type="Text" enabled="false"/>
+								<Input id="txtLngFrom" type="Text" enabled="false"/>-->
+								<Label text="Route To"/>
+								<ComboBox id="drpRouteTo" items="{ path: '/Locations', sorter: { path: 'Name' } }">
+									<core:Item key="{LocationId}" text="{Name}"/>
+								</ComboBox>
+								<!--<Input id="txtRouteTo" type="Text"/>
+								<Button id="btnSearchTo" icon="sap-icon://search" text="Find" press="onSeachRouteTo" type="Emphasized" tooltip="Search"/>
+								
+								<Input id="txtLatTo" type="Text" enabled="false"/>
+								<Input id="txtLngTo" type="Text" enabled="false"/>-->
+								<Label text="Assign Date"/>
+								<DatePicker id="dpkAssignDateFrom" valueFormat="yyyy-MM-dd" displayFormat="long" placeholder="From"/>
+								<!--<DatePicker id="dpkAssignDateTo" valueFormat="yyyy-MM-dd" displayFormat="long" placeholder="To"/>-->
+								<Label text="Assign Time"/>
+								<TimePicker id="tpkAssignTimeFrom" valueFormat="hh:mm a" displayFormat="hh:mm a" placeholder="From"/>
+								<TimePicker id="tpkAssignTimeTo" valueFormat="hh:mm a" displayFormat="hh:mm a" placeholder="To"/>
+								<Label text="Comments"/>
+								<TextArea id="txtComments" rows="3"/>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+				</content>
+				<footer>
+					<OverflowToolbar>
+						<content>
+							<ToolbarSpacer/>
+							<Button id="btnSave" text="Save" icon="sap-icon://save" press="_onSaveUpdate" type="Emphasized" tooltip="Save"/>
+							<Button id="bnClear" text="Clear" icon="sap-icon://decline" press="_clearData" type="Reject" tooltip="Clear"/>
+						</content>
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

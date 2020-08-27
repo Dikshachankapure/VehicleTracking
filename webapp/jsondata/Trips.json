@@ -1,0 +1,71 @@
+{
+	"Trips": [{
+		"TripId": "1",
+		"RegistrationNo": "GJ1AH7122",
+		"DriverName": "Patel Vijay",
+		"VehicleRouteFrom": "Ahmedabad",
+		"VehicleRouteTo": "Baroda",
+		"AssignedDateFrom": "01/05/2019",
+		"AssignedDateTo": "01/05/2019",
+		"AssignedTimeFrom": "10:00 AM",
+		"AssignedTimeTo": "06:00 PM",
+		"Comments": "test Comments",
+		"Status":"ONGOING",
+		"Type":"Success"
+
+	},{
+		"TripId": "2",
+		"RegistrationNo": "GJ1AH7122",
+		"DriverName": "Patel Vijay",
+		"VehicleRouteFrom": "Ahmedabad",
+		"VehicleRouteTo": "Baroda",
+		"AssignedDateFrom": "01/05/2019",
+		"AssignedDateTo": "01/05/2019",
+		"AssignedTimeFrom": "10:00 AM",
+		"AssignedTimeTo": "06:00 PM",
+		"Comments": "test Comments",
+		"Status":"UPCOMING",
+		"Type":"Warning"
+
+	}, {
+		"TripId": "3",
+		"RegistrationNo": "GJ3FJ1234",
+		"DriverName": "Rabari Sanjay",
+		"VehicleRouteFrom": "Ahmedabad",
+		"VehicleRouteTo": "Mehsana",
+		"AssignedDateFrom": "01/05/2019",
+		"AssignedDateTo": "01/05/2019",
+		"AssignedTimeFrom": "01:00 AM",
+		"Assign,edTimeTo": "05:00 PM",
+		"Comments": "test Comments",
+		"Status":"UPCOMING",
+		"Type":"Warning"
+	},{
+		"TripId": "4",
+		"RegistrationNo": "GJ3FJ1234",
+		"DriverName": "Rabari Sanjay",
+		"VehicleRouteFrom": "Ahmedabad",
+		"VehicleRouteTo": "Mehsana",
+		"AssignedDateFrom": "02/05/2019",
+		"AssignedDateTo": "02/05/2019",
+		"AssignedTimeFrom": "01:00 AM",
+		"Assign,edTimeTo": "05:00 PM",
+		"Comments": "test Comments",
+		"Status":"UPCOMING",
+		"Type":"Warning"
+	},{
+		"TripId": "4",
+		"RegistrationNo": "GJ3FJ1234",
+		"DriverName": "Rabari Sanjay",
+		"VehicleRouteFrom": "Ahmedabad",
+		"VehicleRouteTo": "Mehsana",
+		"AssignedDateFrom": "02/05/2019",
+		"AssignedDateTo": "02/05/2019",
+		"AssignedTimeFrom": "01:00 AM",
+		"Assign,edTimeTo": "05:00 PM",
+		"Comments": "test Comments",
+		"Status":"CANCELLED",
+		"Type":"Error"
+	}]
+
+}

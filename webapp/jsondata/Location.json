@@ -1,0 +1,15 @@
+{
+	"Locations": [{
+		"LocationId": "1",
+		"Name": "Ahmedabad",
+		"Lat": "10.23456",
+		"Lng": "15.12345"
+
+	}, {
+		"LocationId": "2",
+		"Name": "Vadodara",
+		"Lat": "20.23456",
+		"Lng": "35.12345"
+	}]
+
+}

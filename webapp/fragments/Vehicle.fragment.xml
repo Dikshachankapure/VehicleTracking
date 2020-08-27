@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="{i18n>select}" items="{ path: '/Vehicles' }" noDataText="{i18n>notfound}" search="_handleValueHelpSearchVehicle"
+		confirm="_handleValueHelpCloseVehicle" cancel="_handleValueHelpCloseVehicle">
+		<StandardListItem title="{OwnerName}" description="{RegistrationNo}" iconDensityAware="false" iconInset="false" type="Active"/>
+	</SelectDialog>
+</core:FragmentDefinition>

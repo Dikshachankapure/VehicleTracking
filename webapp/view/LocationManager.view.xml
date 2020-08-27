@@ -1,0 +1,88 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:tnt="sap.tnt"
+	controllerName="product.ZVehicleTracking.controller.LocationManager" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="{i18n>titleLocationList}" navButtonPress="_onNavBack" showNavButton="true" floatingFooter="true">
+				<content>
+					<tnt:ToolHeader>
+						<Button text="Dashboard" icon="sap-icon://bbyd-dashboard" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Location Manager" icon="sap-icon://map" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Vehicle Manager" icon="sap-icon://inventory" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Driver Manager" icon="sap-icon://employee" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Trip Manager" icon="sap-icon://task" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Track Vehicle" icon="sap-icon://shipping-status" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+					</tnt:ToolHeader>
+					<Table id="tblLocations" inset="false" visible="true" class="sapUiResponsiveMargin" growing="true" growingScrollToLoad="true" width="auto"
+						growingThreshold="10" items="{path:'/Locations'}" noDataText="{i18n>nodatafound}">
+						<headerToolbar>
+							<Toolbar>
+								<content>
+									<Title text="List of Locations" level="H2"/>
+									<ToolbarSpacer/>
+									<SearchField id="txtSearch" liveChange="onSearch" width="50%"/>
+									<Button id="btnSpeech" icon="sap-icon://microphone" press="_searchBySpeech" type="Emphasized" tooltip="Speak"/>
+									<!--<Input id="txtSearch" width="30%" type="Text"/>
+									<Button id="btnSearch" icon="sap-icon://search" press="onSearch" type="Accept" tooltip="Add Driver"/>-->
+									<Button id="btnAdd" icon="sap-icon://add" press="onAddLocation" type="Accept" tooltip="Add Location"/>
+								</content>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column demandPopin="true" visible="false">
+								<Text text="Id"/>
+							</Column>
+							<Column demandPopin="true">
+								<Text text="Name"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Latitude"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Longitude"/>
+							</Column>
+							
+							<Column demandPopin="true">
+								<Text text=""/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem vAlign="Middle" type="Navigation" press="onEdit">
+								<cells>
+									<Text text="{LocationId}" visible="false"/>
+									<Text text="{Name}"/>
+									<Text text="{Lat}"/>
+									<Text text="{Lng}"/>
+									<Button id="btnDelete" icon="sap-icon://delete" press="onDelete" type="Reject" tooltip="Delete"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,73 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="product.ZVehicleTracking.controller.AddDriver"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:tnt="sap.tnt" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+			<Page title="{i18n>titleAddDriver}" navButtonPress="_onNavBack" showNavButton="true" floatingFooter="true">
+				<content>
+					<tnt:ToolHeader>
+						<Button text="Dashboard" icon="sap-icon://bbyd-dashboard" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Location Manager" icon="sap-icon://map" type="Transparent" press="_onPressMenu">
+								<layoutData>
+									<OverflowToolbarLayoutData priority="Low"/>
+								</layoutData>
+							</Button>
+						<Button text="Vehicle Manager" icon="sap-icon://inventory" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Driver Manager" icon="sap-icon://employee" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Trip Manager" icon="sap-icon://task" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Track Vehicle" icon="sap-icon://shipping-status" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+					</tnt:ToolHeader>
+					<VBox class="sapUiSmallMargin">
+						<f:SimpleForm id="SimpleFormChange354" editable="true" layout="ResponsiveGridLayout" title="Add Driver" labelSpanXL="3" labelSpanL="3"
+							labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+							columnsL="1" columnsM="1" singleContainerFullSize="false">
+							<f:content>
+								<Input id="txtDriverId" visible="false" value="0" type="Text"/>
+								<Label text="First Name" required="true"/>
+								<Input id="txtFirstName" type="Text"/>
+								<Label text="Last Name" required="true"/>
+								<Input id="txtLastName" type="Text"/>
+								<Label text="Mobile No" required="true"/>
+								<Input id="txtMobileNo" type="Number" maxLength="12"/>
+								<Label text="License No" required="true"/>
+								<Input id="txtLicenseNo" type="Text" maxLength="15"/>
+								<Label text="Aadhar Card No" required="true"/>
+								<Input id="txtAadharCardNo" type="Number" maxLength="12"/>
+								<Label text="Address" required="true"/>
+								<TextArea id="txtAddress" rows="3"/>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+				</content>
+				<footer>
+					<OverflowToolbar>
+						<content>
+							<ToolbarSpacer/>
+							<Button id="btnSave" text="Save" visible="true" icon="sap-icon://save" press="_onSaveUpdate" type="Emphasized" tooltip="Save"/>
+							<Button id="bnClear" text="Clear" icon="sap-icon://decline" press="_clearData" type="Reject" tooltip="Clear"/>
+						</content>
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
