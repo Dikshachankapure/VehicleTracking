@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="{i18n>select}" items="{ path: '/Drivers' }" noDataText="{i18n>notfound}"
+		search="_handleValueHelpSearchDriver" confirm="_handleValueHelpCloseDriver" cancel="_handleValueHelpCloseDriver">
+		<StandardListItem title="{FirstName} {LastName}" description="{DriverId}" iconDensityAware="false" iconInset="false" type="Active"/>
+	</SelectDialog>
+</core:FragmentDefinition>

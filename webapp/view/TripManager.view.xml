@@ -1,0 +1,90 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="product.ZVehicleTracking.controller.TripManager" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:tnt="sap.tnt">
+	<App>
+		<pages>
+			<Page title="{i18n>titleAssignTrip}" navButtonPress="_onNavBack" showNavButton="true">
+				<content>
+					<tnt:ToolHeader>
+						<Button text="Dashboard" icon="sap-icon://bbyd-dashboard" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Location Manager" icon="sap-icon://map" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Vehicle Manager" icon="sap-icon://inventory" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Driver Manager" icon="sap-icon://employee" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Trip Manager" icon="sap-icon://task" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Track Vehicle" icon="sap-icon://shipping-status" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+					</tnt:ToolHeader>
+					<Table id="tblTrips" inset="false" visible="true" class="sapUiResponsiveMargin" growing="true" growingScrollToLoad="true" width="auto"
+						growingThreshold="10" items="{path:'/Trips'}" noDataText="{i18n>nodatafound}">
+						<headerToolbar>
+							<Toolbar>
+								<Title text="List of Trips" level="H2"/>
+								<ToolbarSpacer/>
+								<SearchField liveChange="onSearch" width="50%"/>
+								<Button id="btnAdd" icon="sap-icon://add" press="onAddTrip" type="Accept" tooltip="Add Trip"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column demandPopin="true" visible="false">
+								<Text text="Trip Id"/>
+							</Column>
+							<Column demandPopin="true">
+								<Text text="Vehicle RegNo"/>
+							</Column>
+							<Column demandPopin="true">
+								<Text text="Driver Name"/>
+							</Column>
+							<Column demandPopin="true" hAlign="Center" minScreenWidth="Tablet">
+								<Text text="Assigned Route"/>
+							</Column>
+							<Column demandPopin="true" hAlign="Center" minScreenWidth="Tablet">
+								<Text text="Assigned Date"/>
+							</Column>
+							<Column demandPopin="true" hAlign="End" minScreenWidth="Tablet">
+								<Text text="Assigned Time"/>
+							</Column>
+							<Column demandPopin="true" hAlign="End">
+								<Text text="Delete"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem vAlign="Middle" type="Navigation" press="onEdit">
+								<cells>
+									<Text text="{TripId}" visible="false"/>
+									<Text text="{RegistrationNo}"/>
+									<Text text="{DriverName}"/>
+									<Text text="From: {VehicleRouteFrom} To: {VehicleRouteTo}"/>
+									<Text text="From: {AssignedDateFrom}"/>
+									<Text text="From: {AssignedTimeFrom} To: {AssignedTimeTo}"/>
+									<Button id="btnDelete" icon="sap-icon://delete" press="onDelete" type="Reject" tooltip="Delete"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,256 @@
+<mvc:View controllerName="product.ZVehicleTracking.controller.Dashboard" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:l="sap.ui.layout" xmlns:grid="sap.ui.layout.cssgrid" xmlns:f="sap.f"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:vizFeeds="sap.viz.ui5.controls.common.feeds" xmlns:vizData="sap.viz.ui5.data">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+						<tnt:ToolHeader>
+							<Button text="Dashboard" icon="sap-icon://bbyd-dashboard" type="Transparent" press="_onPressMenu">
+								<layoutData>
+									<OverflowToolbarLayoutData priority="Low"/>
+								</layoutData>
+							</Button>
+							<Button text="Location Manager" icon="sap-icon://map" type="Transparent" press="_onPressMenu">
+								<layoutData>
+									<OverflowToolbarLayoutData priority="Low"/>
+								</layoutData>
+							</Button>
+							<Button text="Vehicle Manager" icon="sap-icon://inventory" type="Transparent" press="_onPressMenu">
+								<layoutData>
+									<OverflowToolbarLayoutData priority="Low"/>
+								</layoutData>
+							</Button>
+							<Button text="Driver Manager" icon="sap-icon://employee" type="Transparent" press="_onPressMenu">
+								<layoutData>
+									<OverflowToolbarLayoutData priority="Low"/>
+								</layoutData>
+							</Button>
+							<Button text="Trip Manager" icon="sap-icon://task" type="Transparent" press="_onPressMenu">
+								<layoutData>
+									<OverflowToolbarLayoutData priority="Low"/>
+								</layoutData>
+							</Button>
+							<Button text="Track Vehicle" icon="sap-icon://shipping-status" type="Transparent" press="_onPressMenu">
+								<layoutData>
+									<OverflowToolbarLayoutData priority="Low"/>
+								</layoutData>
+							</Button>
+						</tnt:ToolHeader>
+						<f:GridList id="gridList1">
+							<f:customLayout>
+								<grid:GridBoxLayout boxMinWidth="17rem"/>
+							</f:customLayout>
+							<CustomListItem>
+								<GenericTile id="totallocations" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Locations" subheader=""
+									press="_onPressTiles">
+									<TileContent unit="" footer="">
+										<NumericContent id="countLocations" icon="sap-icon://functional-location"/>
+									</TileContent>
+								</GenericTile>
+								<GenericTile id="totalvehicles" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Vehicles" subheader=""
+									press="_onPressTiles">
+									<TileContent unit="" footer="">
+										<NumericContent id="countVehicles" icon="sap-icon://inventory"/>
+									</TileContent>
+								</GenericTile>
+								<GenericTile id="totaldrivers" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Drivers" subheader=""
+									press="_onPressTiles">
+									<TileContent unit="" footer="">
+										<NumericContent id="countDrivers" icon="sap-icon://employee"/>
+									</TileContent>
+								</GenericTile>
+								<!--<GenericTile id="totaltrips" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Trips" subheader="" press="_onPressTiles">
+									<TileContent unit="" footer="">
+										<NumericContent id="countTrips" icon="sap-icon://task"/>
+									</TileContent>
+								</GenericTile>-->
+							</CustomListItem>
+							<CustomListItem>
+								<viz:VizFrame xmlns="sap.viz" id="idDonutChart" vizType="donut" width="100%" height="100%"
+									vizProperties="{plotArea: { drawingEffect: 'glossy' },title:{ text:'Trips'}}">
+									<viz:dataset>
+										<vizData:FlattenedDataset data="{/Trips}">
+											<vizData:dimensions>
+												<vizData:DimensionDefinition name="Status" value="{Status}"/>
+											</vizData:dimensions>
+											<vizData:measures>
+												<vizData:MeasureDefinition name="Trips" value="{TripId}"/>
+											</vizData:measures>
+										</vizData:FlattenedDataset>
+									</viz:dataset>
+									<viz:feeds>
+										<vizFeeds:FeedItem uid="size" type="Measure" values='Trips'/>
+										<vizFeeds:FeedItem uid="color" type="Dimension" values="Status"/>
+									</viz:feeds>
+								</viz:VizFrame>
+							</CustomListItem>
+						</f:GridList>
+						
+						<f:GridList id="gridList2">
+							<f:customLayout>
+								<grid:GridBoxLayout boxMinWidth="17rem"/>
+							</f:customLayout>
+							<CustomListItem>
+								<VBox height="100%">
+									<VBox class="sapUiSmallMargin">
+										<Panel busyIndicatorDelay="0" expandable="true" expanded="true" headerText="Top 5 Ongoing Trips" width="auto" class="sapUiResponsiveMargin">
+											<content>
+												<Table id="tblOngoingTrips" inset="false" visible="true" class="sapUiResponsiveMargin" width="auto" items="{path:'/Trips'}"
+													noDataText="{i18n>nodatafound}">
+													<columns>
+														<Column demandPopin="true" visible="false">
+															<Text text="Trip Id"/>
+														</Column>
+														<Column demandPopin="true">
+															<Text text="Vehicle RegNo"/>
+														</Column>
+														<Column demandPopin="true" minScreenWidth="Tablet">
+															<Text text="Driver Name"/>
+														</Column>
+														<Column demandPopin="true" hAlign="Center">
+															<Text text="Assigned Route"/>
+														</Column>
+													</columns>
+													<items>
+														<ColumnListItem vAlign="Middle" type="Navigation" press="_onEditTrip">
+															<cells>
+																<Text text="{TripId}" visible="false"/>
+																<Text text="{RegistrationNo}"/>
+																<Text text="{DriverName}"/>
+																<Text text="From: {VehicleRouteFrom} To: {VehicleRouteTo}"/>
+															</cells>
+														</ColumnListItem>
+													</items>
+												</Table>
+											</content>
+										</Panel>
+									</VBox>
+								</VBox>
+							</CustomListItem>
+							<CustomListItem>
+								<VBox height="100%">
+									<VBox class="sapUiSmallMargin">
+										<Panel busyIndicatorDelay="0" expandable="true" expanded="true" headerText="Top 5 Upcoming Trips" width="auto" class="sapUiResponsiveMargin">
+											<content>
+												<Table id="tblUpcomingTrips" inset="false" visible="true" class="sapUiResponsiveMargin" width="auto" items="{path:'/Trips'}"
+													noDataText="{i18n>nodatafound}">
+													<columns>
+														<Column demandPopin="true" visible="false">
+															<Text text="Trip Id"/>
+														</Column>
+														<Column demandPopin="true">
+															<Text text="Vehicle RegNo"/>
+														</Column>
+														<Column demandPopin="true" minScreenWidth="Tablet">
+															<Text text="Driver Name"/>
+														</Column>
+														<Column demandPopin="true" hAlign="Center">
+															<Text text="Assigned Route"/>
+														</Column>
+													</columns>
+													<items>
+														<ColumnListItem vAlign="Middle" type="Navigation" press="_onEditTrip">
+															<cells>
+																<Text text="{TripId}" visible="false"/>
+																<Text text="{RegistrationNo}"/>
+																<Text text="{DriverName}"/>
+																<Text text="From: {VehicleRouteFrom} To: {VehicleRouteTo}"/>
+															</cells>
+														</ColumnListItem>
+													</items>
+												</Table>
+											</content>
+										</Panel>
+									</VBox>
+								</VBox>
+							</CustomListItem>
+						</f:GridList>
+						<f:GridList id="gridList3">
+							<f:customLayout>
+								<grid:GridBoxLayout boxMinWidth="17rem"/>
+							</f:customLayout>
+							<CustomListItem>
+								<VBox height="100%">
+									<VBox class="sapUiSmallMargin">
+										<Panel busyIndicatorDelay="0" expandable="true" expanded="true" headerText="Top 5 Completed Trips" width="auto"
+											class="sapUiResponsiveMargin">
+											<content>
+												<Table id="tblCompletedTrips" inset="false" visible="true" class="sapUiResponsiveMargin" width="auto" items="{path:'/Trips'}"
+													noDataText="{i18n>nodatafound}">
+													<columns>
+														<Column demandPopin="true" visible="false">
+															<Text text="Trip Id"/>
+														</Column>
+														<Column demandPopin="true">
+															<Text text="Vehicle RegNo"/>
+														</Column>
+														<Column demandPopin="true" minScreenWidth="Tablet">
+															<Text text="Driver Name"/>
+														</Column>
+														<Column demandPopin="true" hAlign="Center">
+															<Text text="Assigned Route"/>
+														</Column>
+													</columns>
+													<items>
+														<ColumnListItem vAlign="Middle" type="Navigation" press="_onEditTrip">
+															<cells>
+																<Text text="{TripId}" visible="false"/>
+																<Text text="{RegistrationNo}"/>
+																<Text text="{DriverName}"/>
+																<Text text="From: {VehicleRouteFrom} To: {VehicleRouteTo}"/>
+															</cells>
+														</ColumnListItem>
+													</items>
+												</Table>
+											</content>
+										</Panel>
+									</VBox>
+								</VBox>
+							</CustomListItem>
+							<CustomListItem>
+								<VBox height="100%">
+									<VBox class="sapUiSmallMargin">
+										<Panel busyIndicatorDelay="0" expandable="true" expanded="true" headerText="Top 5 Cancelled Trips" width="auto"
+											class="sapUiResponsiveMargin">
+											<content>
+												<Table id="tblCancelledTrips" inset="false" visible="true" class="sapUiResponsiveMargin" width="auto" items="{path:'/Trips'}"
+													noDataText="{i18n>nodatafound}">
+													<columns>
+														<Column demandPopin="true" visible="false">
+															<Text text="Trip Id"/>
+														</Column>
+														<Column demandPopin="true">
+															<Text text="Vehicle RegNo"/>
+														</Column>
+														<Column demandPopin="true" minScreenWidth="Tablet">
+															<Text text="Driver Name"/>
+														</Column>
+														<Column demandPopin="true" hAlign="Center">
+															<Text text="Assigned Route"/>
+														</Column>
+													</columns>
+													<items>
+														<ColumnListItem vAlign="Middle" type="Navigation" press="_onEditTrip">
+															<cells>
+																<Text text="{TripId}" visible="false"/>
+																<Text text="{RegistrationNo}"/>
+																<Text text="{DriverName}"/>
+																<Text text="From: {VehicleRouteFrom} To: {VehicleRouteTo}"/>
+															</cells>
+														</ColumnListItem>
+													</items>
+												</Table>
+											</content>
+										</Panel>
+									</VBox>
+								</VBox>
+							</CustomListItem>
+						</f:GridList>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

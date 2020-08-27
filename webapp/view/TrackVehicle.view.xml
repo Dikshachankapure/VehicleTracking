@@ -1,0 +1,114 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:l="sap.ui.layout"
+	xmlns:fb="sap.ui.comp.filterbar" controllerName="product.ZVehicleTracking.controller.TrackVehicle" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="{i18n>titleTrackVehicle}" navButtonPress="_onNavBack" showNavButton="true">
+				<content>
+					<tnt:ToolHeader>
+						<Button text="Dashboard" icon="sap-icon://bbyd-dashboard" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Location Manager" icon="sap-icon://map" type="Transparent" press="_onPressMenu">
+								<layoutData>
+									<OverflowToolbarLayoutData priority="Low"/>
+								</layoutData>
+							</Button>
+						<Button text="Vehicle Manager" icon="sap-icon://inventory" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Driver Manager" icon="sap-icon://employee" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Trip Manager" icon="sap-icon://task" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Track Vehicle" icon="sap-icon://shipping-status" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+					</tnt:ToolHeader>
+					<l:VerticalLayout width="100%">
+						<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true">
+							<fb:filterItems>
+								<fb:FilterItem name="A" label="Date">
+									<fb:control>
+										<DatePicker id="dpkDate" valueFormat="dd/MM/yyyy" displayFormat="short"/>
+									</fb:control>
+								</fb:FilterItem>
+								<fb:FilterItem name="B" label="Status" labelTooltip="Status">
+									<fb:control>
+										<ComboBox id="cmbStatus">
+											<items>
+												<core:Item key="ONGOING" text="ONGOING"/>
+												<core:Item key="UPCOMING" text="UPCOMING"/>
+												<core:Item key="COMPLETED" text="COMPLETED"/>
+												<core:Item key="CANCELLED" text="CANCELLED"/>
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+							</fb:filterItems>
+						</fb:FilterBar>
+					</l:VerticalLayout>
+					<Table id="tblTrips" inset="false" visible="true" class="sapUiResponsiveMargin" growing="true" growingScrollToLoad="true" width="auto"
+						growingThreshold="10" items="{path:'/Trips'}" noDataText="{i18n>nodatafound}">
+						<headerToolbar>
+							<Toolbar>
+								<Title text="List of Trips" level="H2"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column demandPopin="true">
+								<Text text="Trip Id"/>
+							</Column>
+							<Column demandPopin="true">
+								<Text text="Vehicle RegNo"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Driver Name"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Assigned Route"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Assigned Date"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Assigned Time"/>
+							</Column>
+							<Column demandPopin="true" hAlign="Center" minScreenWidth="Tablet">
+								<Text text="Status"/>
+							</Column>
+							<Column demandPopin="true" hAlign="End">
+								<Text text=""/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem vAlign="Middle">
+								<cells>
+									<Text text="{TripId}"/>
+									<Text text="{RegistrationNo}"/>
+									<Text text="{DriverName}"/>
+									<Text text="From: {VehicleRouteFrom} To: {VehicleRouteTo}"/>
+									<Text text="From: {AssignedDateFrom}"/>
+									<Text text="From: {AssignedTimeFrom} To: {AssignedTimeTo}"/>
+									<MessageStrip type="{Type}" text="{Status}" class="sapUiMediumMarginBottom"></MessageStrip>
+									<Button id="btnCancel" icon="sap-icon://sys-cancel" press="onCancel" type="Reject" tooltip="Cancel"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

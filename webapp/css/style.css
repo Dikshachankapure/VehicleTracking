@@ -1,0 +1,45 @@
+.sapMGT
+{
+	background: #EFF4F9;
+}
+.sapMNCIconImage
+{
+	color: #000000;
+}
+
+.sapMGTHdrTxt>.sapMText
+{
+	font-size: 20px;
+}
+.sapMList
+{
+	margin-top:10px;
+}
+.sapMListHdrText
+{
+	text-align: center;
+}
+@media (max-width: 1023px) and (min-width: 600px)
+{
+	.sapMSplitContainerHideMode>.sapMSplitContainerDetail .sapUiResponsiveMargin, .sapUiResponsiveMargin {
+    	margin: 0rem; 
+	}
+}
+.sapMPanelContent
+{
+	padding: 0rem 0rem 0rem 0rem;
+}
+.sapMPanelContent:not(.sapMPanelBGTransparent)
+{
+	    border-bottom: 0px;
+}
+#__bar0-btnShowHide-BDI-content, #__bar0-btnFilters
+{
+	visibility:hidden;
+}
+.sapMLIB
+{
+	align-items: normal;
+}
+
+

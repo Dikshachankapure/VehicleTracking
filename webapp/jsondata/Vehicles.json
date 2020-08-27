@@ -1,0 +1,25 @@
+{
+	"Vehicles": [{
+		"VehicleId": "1",
+        "CompanyCode": "1000",
+        "RegistrationNo": "GJ1AH7122",
+        "OwnerName": "Owner 1",
+        "VehicleType": "Bus",
+        "Comments": "test cooments 1"
+    },{
+    	"VehicleId": "2",
+        "CompanyCode": "1001",
+        "RegistrationNo": "GJ2AH1232",
+        "OwnerName": "Owner 2",
+        "VehicleType": "Car",
+        "Comments": "test Comments 2"
+    },{
+    	"VehicleId": "3",
+        "CompanyCode": "1002",
+        "RegistrationNo": "GJ3FJ1234",
+        "OwnerName": "Owner 3",
+        "VehicleType": "Car",
+        "Comments": "test commnets 3"
+    }]
+    
+ }

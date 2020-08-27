@@ -1,0 +1,95 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="product.ZVehicleTracking.controller.DriverManager" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:tnt="sap.tnt">
+	<App>
+		<pages>
+			<Page title="{i18n>titleDriverList}" navButtonPress="_onNavBack" showNavButton="true">
+				<content>
+					<tnt:ToolHeader>
+						<Button text="Dashboard" icon="sap-icon://bbyd-dashboard" type="Transparent" press="_onPressMenu">
+								<layoutData>
+									<OverflowToolbarLayoutData priority="Low"/>
+								</layoutData>
+							</Button>
+							<Button text="Location Manager" icon="sap-icon://map" type="Transparent" press="_onPressMenu">
+								<layoutData>
+									<OverflowToolbarLayoutData priority="Low"/>
+								</layoutData>
+							</Button>
+							<Button text="Vehicle Manager" icon="sap-icon://inventory" type="Transparent" press="_onPressMenu">
+								<layoutData>
+									<OverflowToolbarLayoutData priority="Low"/>
+								</layoutData>
+							</Button>
+							<Button text="Driver Manager" icon="sap-icon://employee" type="Transparent" press="_onPressMenu">
+								<layoutData>
+									<OverflowToolbarLayoutData priority="Low"/>
+								</layoutData>
+							</Button>
+							<Button text="Trip Manager" icon="sap-icon://task" type="Transparent" press="_onPressMenu">
+								<layoutData>
+									<OverflowToolbarLayoutData priority="Low"/>
+								</layoutData>
+							</Button>
+							<Button text="Track Vehicle" icon="sap-icon://shipping-status" type="Transparent" press="_onPressMenu">
+								<layoutData>
+									<OverflowToolbarLayoutData priority="Low"/>
+								</layoutData>
+							</Button>
+						</tnt:ToolHeader>
+					<Table id="tblDrivers" inset="false" visible="true" class="sapUiResponsiveMargin" growing="true" growingScrollToLoad="true" width="auto"
+						growingThreshold="10" items="{path:'/Drivers'}" noDataText="{i18n>nodatafound}">
+						<headerToolbar>
+							<Toolbar>
+								<content>
+									<Title text="List of Drivers" level="H2"/>
+									<ToolbarSpacer/>
+									<SearchField liveChange="onSearch" width="50%"/>
+									<!--<Input id="txtSearch" width="30%" type="Text"/>
+									<Button id="btnSearch" icon="sap-icon://search" press="onSearch" type="Accept" tooltip="Add Driver"/>-->
+									<Button id="btnAdd" icon="sap-icon://add" press="onAddDriver" type="Accept" tooltip="Add Driver"/>
+								</content>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column demandPopin="true" width="5%" visible="false">
+								<Text text="Id"/>
+							</Column>
+							<Column demandPopin="true">
+								<Text text="First Name"/>
+							</Column>
+							<Column demandPopin="true">
+								<Text text="Last Name"/>
+							</Column>
+							<Column demandPopin="true"  minScreenWidth="Tablet">
+								<Text text="Mobile No"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="License No"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Aadhar Card No"/>
+							</Column>
+							<Column demandPopin="true" hAlign="Center" width="15%">
+								<Text text=""/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem vAlign="Middle" type="Navigation" press="onEdit">
+								<cells>
+									<Text text="{DriverId}" visible="false"/>
+									<Text text="{FirstName}"/>
+									<Text text="{LastName}"/>
+									<Text text="{MobileNo}"/>
+									<Text text="{LicenseNo}"/>
+									<Text text="{AadharNo}"/>
+									
+									<Button id="btnDelete" icon="sap-icon://delete" press="onDelete" type="Reject" tooltip="Delete"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

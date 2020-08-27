@@ -1,0 +1,278 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "product.ZVehicleTracking",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "product.ZVehicleTracking.view.Dashboard",
+			"type": "XML",
+			"async": true,
+			"id": "Dashboard"
+		},
+		"dependencies": {
+			"minUI5Version": "1.52.28",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "product.ZVehicleTracking.i18n.i18n"
+				}
+			},
+			"DriverSet": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "jsondata/Driver.json",
+				"preload": false
+			},
+			"VehicleSet": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "jsondata/Vehicles.json",
+				"preload": false
+			},
+			"CompanyCodeSet": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "jsondata/CompanyCode.json",
+				"preload": false
+			},
+			"TripSet": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "jsondata/Trips.json",
+				"preload": false
+			},
+			"LocationSet": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "jsondata/Location.json",
+				"preload": false
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "product.ZVehicleTracking.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "Dashboard",
+					"pattern": "",
+					"target": [
+						"Dashboard"
+					]
+				},
+				{
+					"name": "AddLocation",
+					"pattern": "addlocation",
+					"target": [
+						"AddLocation"
+					]
+				},
+				{
+					"name": "EditLocation",
+					"pattern": "editlocation/{LocationId}",
+					"target": [
+						"EditLocation"
+					]
+				},
+				{
+					"name": "LocationManager",
+					"pattern": "locationmanager",
+					"target": [
+						"LocationManager"
+					]
+				},
+				{
+					"name": "AddVehicle",
+					"pattern": "addvehicle",
+					"target": [
+						"AddVehicle"
+					]
+				},
+				{
+					"name": "EditVehicle",
+					"pattern": "editvehicle/{VehicleId}",
+					"target": [
+						"EditVehicle"
+					]
+				},
+				{
+					"name": "VehicleMaster",
+					"pattern": "vehicleMaster",
+					"target": [
+						"VehicleMaster"
+					]
+				},
+				{
+					"name": "AddDriver",
+					"pattern": "adddriver",
+					"target": [
+						"AddDriver"
+					]
+				},
+				{
+					"name": "EditDriver",
+					"pattern": "editdriver/{DriverId}",
+					"target": [
+						"EditDriver"
+					]
+				},
+				{
+					"name": "DriverManager",
+					"pattern": "drivermanager",
+					"target": [
+						"DriverManager"
+					]
+				},
+				{
+					"name": "AddTrip",
+					"pattern": "addtrip",
+					"target": [
+						"AddTrip"
+					]
+				},
+				{
+					"name": "EditTrip",
+					"pattern": "edittrip/{TripId}",
+					"target": [
+						"EditTrip"
+					]
+				},
+				{
+					"name": "TripManager",
+					"pattern": "tripmanager",
+					"target": [
+						"TripManager"
+					]
+				},
+				{
+					"name": "TrackVehicle",
+					"pattern": "trackvehicle",
+					"target": [
+						"TrackVehicle"
+					]
+				}
+			],
+			"targets": {
+				"Dashboard": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "Dashboard"
+				},
+				"AddVehicle": {
+					"viewType": "XML",
+					"viewName": "AddVehicle"
+				},
+				"EditVehicle": {
+					"viewType": "XML",
+					"viewName": "AddVehicle"
+				},
+				"VehicleMaster": {
+					"viewType": "XML",
+					"viewName": "VehicleMaster"
+				},
+				"AddDriver": {
+					"viewType": "XML",
+					"viewName": "AddDriver"
+				},
+				"EditDriver": {
+					"viewType": "XML",
+					"viewName": "AddDriver"
+				},
+				"DriverManager": {
+					"viewType": "XML",
+					"viewName": "DriverManager"
+				},
+				"AddTrip": {
+					"viewType": "XML",
+					"viewName": "AddTrip"
+				},
+				"EditTrip": {
+					"viewType": "XML",
+					"viewName": "AddTrip"
+				},
+				"TripManager": {
+					"viewType": "XML",
+					"viewName": "TripManager"
+				},
+				"TrackVehicle": {
+					"viewType": "XML",
+					"viewName": "TrackVehicle"
+				},
+				"AddLocation": {
+					"viewType": "XML",
+					"viewName": "AddLocation"
+				},
+				"EditLocation": {
+					"viewType": "XML",
+					"viewName": "AddLocation"
+				},
+				"LocationManager": {
+					"viewType": "XML",
+					"viewName": "LocationManager"
+				},
+				"ViewPDF": {
+					"viewType": "XML",
+					"viewName": "ViewPDF"
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}

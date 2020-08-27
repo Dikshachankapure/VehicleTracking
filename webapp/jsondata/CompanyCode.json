@@ -1,0 +1,11 @@
+{
+	"CompanyCodeSet": [{
+		"CompanyCode": "1000",
+        "Name1": "VSD Techno India"
+        
+    },{
+    	"CompanyCode": "1001",
+        "Name1": "VSD Techno USA"
+    }]
+    
+ }
